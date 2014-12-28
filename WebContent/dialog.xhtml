@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<h:panelGrid columns="1">
+			<p:commandButton id="simples" value="Simples"
+				onclick="dialogo1.show();" type="button"></p:commandButton>
+			<p:commandButton id="modalDialogoButton" value="Modal"
+				onclick="dialogo2.show();" type="button"></p:commandButton>
+			<p:commandButton id="efeitoDialogoButton" value="Efeito"
+				onclick="dialogo3.show();" type="button"></p:commandButton>
+				<p:commandButton id="efeitoModalDialogoButton" value="Efeito Modal"
+				onclick="dialogo4.show();" type="button"></p:commandButton>
+		</h:panelGrid>
+		<p:dialog id="simplesDialog" header="Simples Dialog"
+			widgetVar="dialogo1">
+			<h:outputText value="Minha primeira dialog com primefaces."></h:outputText>
+		</p:dialog>
+		<p:dialog id="modalDialog" header="Modal Dialog" modal="true"
+			widgetVar="dialogo2">
+			<h:outputText
+				value="Minha primeira dialog com modal usando primefaces."></h:outputText>
+		</p:dialog>
+		<p:dialog id="efeitoDialog" header="Efeito Dialog" showEffect="fade"
+			hideEffect="fade" widgetVar="dialogo3">
+			<h:outputText
+				value="Minha primeira dialog com efeito usando primefaces."></h:outputText>
+		</p:dialog>
+		<p:dialog id="efeitoModalDialog" header="Efeito Modal Dialog" showEffect="fade"
+			hideEffect="fade" modal="true" widgetVar="dialogo4">
+			<h:outputText
+				value="Minha primeira dialog com efeito + modal usando primefaces."></h:outputText>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

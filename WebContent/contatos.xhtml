@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+	<p:growl showDetail="true"></p:growl>
+		<p:panel header="Contatos">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome:" for="txtNome"></h:outputLabel>
+				<p:inputText id="txtNome" value="#{contatoBean.contato.nome}"></p:inputText>
+
+				<h:outputLabel value="Cidade:" for="txtCidade"></h:outputLabel>
+				<p:inputText id="txtCidade" value="#{contatoBean.contato.cidade}"></p:inputText>
+
+				<p:commandButton value="Inserir Contato" action="#{contatoBean.InserirContato}" update="@form" />
+			</h:panelGrid>
+		</p:panel>
+		<p:dataTable value="#{contatoBean.contatos}" var="contato" id="gridContatos">
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Nome"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{contato.nome}"></h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Cidade"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{contato.cidade}"></h:outputText>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+
+		<p:commandButton type="button" value="Iniciar" onclick="pollContador.start();pollData.start();"></p:commandButton>
+
+		<p:commandButton type="button" value="Parar" onclick="pollContador.stop();pollData.stop();"></p:commandButton>
+		<br />
+		<br />
+		<h:outputText id="txtContador" value="#{poolBean.count}"></h:outputText>
+		<br />
+		<h:outputText id="txtData" value="#{poolBean.data}"></h:outputText>
+
+
+		<p:poll interval="1" listener="#{poolBean.incrementar}"
+			update="txtContador" widgetVar="pollContador" autoStart="false"></p:poll>
+
+		<p:poll interval="1" update="txtData" widgetVar="pollData" autoStart="false"></p:poll>
+
+	</h:form>
+</h:body>
+</html>

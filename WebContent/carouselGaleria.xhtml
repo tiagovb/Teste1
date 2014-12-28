@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<h3>Carousel Galeria Horizontal</h3>		
+		<p:carousel pageLinks="4" autoPlayInterval="5000" rows="1"
+		effect="easeInStrong" circular="true">
+		<p:graphicImage value="/img/item1.jpg"/>
+		<p:graphicImage value="/img/item2.jpg"/>
+		<p:graphicImage value="/img/item3.jpg"/>
+		<p:graphicImage value="/img/item4.jpg"/>
+		<p:graphicImage value="/img/item5.jpg"/>
+		<p:graphicImage value="/img/item6.jpg"/>
+		</p:carousel>
+		
+		<h3>Carousel Galeria Vertical</h3>
+		<p:carousel pageLinks="4" autoPlayInterval="5000" rows="1"
+		effect="easeInStrong" circular="true" vertical="true">
+		<p:graphicImage value="/img/item1.jpg"/>
+		<p:graphicImage value="/img/item2.jpg"/>
+		<p:graphicImage value="/img/item3.jpg"/>
+		<p:graphicImage value="/img/item4.jpg"/>
+		<p:graphicImage value="/img/item5.jpg"/>
+		<p:graphicImage value="/img/item6.jpg"/>
+		</p:carousel>
+		
+		
+	</h:form>
+</h:body>
+</html>

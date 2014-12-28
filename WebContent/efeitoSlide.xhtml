@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<script>
+$(document).ready(function(){
+$('#btnExibir').click(function(){
+	$('div[class*="pnlSlideClique"]').click();
+});
+$('#btnExibir2').dblclick(function(){
+	$('div[class*="pnlSlideDuploClique"]').dblclick();
+});
+});
+</script>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="5">
+			<input type="button" id="btnExibir" value="Exibir"/>
+			<p:panel header="Slide" styleClass="pnlSlideClique" style="display:none">
+				<h:outputText value="Clique" />
+				<p:effect event="click" type="slide">
+				</p:effect>
+			</p:panel>
+			
+			<input type="button" id="btnExibir2" value="Exibir Duplo Clique"/>
+			<p:panel header="Slide" styleClass="pnlSlideDuploClique" style="display:none">
+				<h:outputText value="Duplo Clique" />
+				<p:effect event="dblclick" type="slide">
+				</p:effect>
+			</p:panel>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:growl id="growl" showDetail="true" />
+		<p:dataTable value="#{DataGridBean.produtos}" var="produto"
+			paginator="true" rows="10"
+			paginatorTemplate="{CurrentPageReport} {RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			rowKey="#{produto.id}"
+			selection="#{DataGridBean.produtoSelecionado}">
+			<f:facet name="header">
+			Lista de Produtos
+			</f:facet>
+			<f:facet name="footer">
+			Produtos Comercializados pela Devmedia
+			</f:facet>
+			<p:column selectionMode="single" style="width:20px" />			
+			<p:column sortBy="#{produto.nome}" filterBy="#{produto.nome}"
+				filterMatchMode="contains">
+				<f:facet name="header">
+			Nome
+			</f:facet>
+				<f:facet name="footer">
+				Produtos em promoção
+			</f:facet>
+				<h:outputText value="#{produto.nome}"></h:outputText>
+			</p:column>
+			<p:column headerText="Categoria" sortBy="#{produto.categoria}"
+				filterBy="#{produto.categoria}" filterMatchMode="exact"
+				filterOptions="#{DataGridBean.listaCategorias}">
+				<h:outputText value="#{produto.categoria}"></h:outputText>
+			</p:column>
+			<p:column headerText="Valor" sortBy="#{produto.valor}"
+				filterBy="#{produto.valor}" filterMatchMode="startsWith">
+				<h:outputText value="#{produto.valor}"></h:outputText>
+			</p:column>
+			<p:column headerText="Total Vendas" sortBy="#{produto.totalVendas}"
+				filterBy="#{produto.totalVendas}" filterMatchMode="exact">
+				<h:outputText value="#{produto.totalVendas}"></h:outputText>
+			</p:column>
+			<f:facet name="footer">
+				<p:commandButton id="selectButton" update=":form:detalhes"
+					oncomplete="produto.show()" icon="ui-icon-search" title="Detalhes">
+				</p:commandButton>
+			</f:facet>
+
+		</p:dataTable>
+
+		<p:dialog header="Detalhes do Produto" widgetVar="produto"
+			resizable="false" id="produtoDialog" showEffect="fade"
+			hideEffect="explode" modal="true">
+			<p:dataList id="detalhes" value="#{DataGridBean.produtoSelecionado}"
+				var="produtoSelecionado">
+
+				<p:panelGrid columns="2">
+					<h:outputText value="Nome"></h:outputText>
+					<h:outputText value="#{produtoSelecionado.nome}"></h:outputText>
+				</p:panelGrid>
+
+			</p:dataList>
+
+
+		</p:dialog>
+
+
+
+	</h:form>
+</h:body>
+</html>

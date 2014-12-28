@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<p:growl id="growl" showDetail="true" life="5000" />
+	<h:outputLink id="loginlnk" value="javascript:void(0)"
+		onclick="dialogoAutenticacao.show()" title="login">
+			Autenticar
+		</h:outputLink>
+	<p:dialog id="dialog" minimizable="true" maximizable="true" header="Login" widgetVar="dialogoAutenticacao">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel for="usuario" value="Usuário:" />
+				<p:inputText value="#{loginBean.usuario}" id="usuario"
+					required="true" label="usuario"></p:inputText>
+
+				<h:outputLabel for="senha" value="Senha:" />
+				<h:inputSecret value="#{loginBean.senha}" id="senha" required="true"
+					label="senha" />
+
+				<f:facet name="footer">
+					<p:commandButton id="btnLogin" value="Login" update=":growl"
+						actionListener="#{loginBean.login}"
+						oncomplete="tratarRequisicaoLogin(xhr,status,args)"></p:commandButton>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+
+	</p:dialog>
+
+	<script type="text/javascript">
+		function tratarRequisicaoLogin(xhr, status, args) {
+			if (!args.logado) {
+				jQuery("#dialog").effect("shake", {
+					times : 3
+				}, 100);
+			} else {
+				dialogoAutenticacao.hide();
+				jQuery("#loginlnk").fadeOut();
+			}
+		}
+	</script>
+
+</h:body>
+</html>

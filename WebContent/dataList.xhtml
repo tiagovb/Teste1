@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<h2>GRUPO 1</h2>
+		<h3>Disco</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			itemType="disc">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<h3>Círculo</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			itemType="circle">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<h3>Quadrado</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			itemType="square">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<p:separator />
+		<h2>GRUPO 2</h2>
+		<h3>Numeração</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			type="ordered">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<h3>Letra minúscula</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			type="ordered" itemType="a">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<h3>Letra maiúscula</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			type="ordered" itemType="A">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<h3>Algarismo Romano</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			type="ordered" itemType="i">
+			#{produto.nome}, #{produto.valor} 
+		</p:dataList>
+		<h2>GRUPO 3</h2>
+		<h3>Customizado</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			type="definition">
+			<f:facet name="description">
+			Nome: #{produto.nome}<br />  Valor: #{produto.valor}
+		<br />
+				<br />
+			</f:facet>
+		</p:dataList>
+
+		<h3>Customizado com paginação</h3>
+		<p:dataList value="#{DataGridBean.produtos}" var="produto"
+			type="definition" paginator="true" rows="2"
+			paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="2,3,5">
+			<f:facet name="description">
+			Nome: #{produto.nome}<br />  Valor: #{produto.valor}
+		<br />
+				<br />
+			</f:facet>
+		</p:dataList>
+	</h:form>
+</h:body>
+</html>

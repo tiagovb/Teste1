@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+
+		<p:contextMenu for="produtos">
+			<p:menuitem value="Visualizar" update="detalhesProduto"
+				icon="ui-icon-search" oncomplete="produtoDialog.show()" />
+			<p:menuitem value="Excluir" update="produtos" icon="ui-icon-close"
+				actionListener="#{tableContextBean.removerProduto}" />
+		</p:contextMenu>
+
+		<p:dataTable id="produtos" var="produto"
+			value="#{tableContextBean.produtos}" rowKey="#{produto.nome}"
+			selection="#{tableContextBean.produtoSelecionado}"
+			selectionMode="single">
+			<p:column headerText="Nome">
+			#{produto.nome}
+		</p:column>
+			<p:column headerText="Valor">
+			#{produto.valor}
+		</p:column>
+		</p:dataTable>
+
+		<p:dialog header="Detalhes do Produto" widgetVar="produtoDialog"
+			resizable="true" width="300" showEffect="clip" hideEffect="fold"
+			id="dialog">
+			<h:panelGrid id="detalhesProduto" columns="2" cellpadding="3">
+
+				<h:outputText value="Nome:" />
+				<h:outputText value="#{tableContextBean.produtoSelecionado.nome}" />
+
+				<h:outputText value="Valor:" />
+				<h:outputText value="#{tableContextBean.produtoSelecionado.valor}" />
+
+				<h:outputText value="Total Vendas:" />
+				<h:outputText value="#{tableContextBean.produtoSelecionado.totalVendas}" />
+
+			</h:panelGrid>
+		</p:dialog>
+
+	</h:form>
+</h:body>
+</html>

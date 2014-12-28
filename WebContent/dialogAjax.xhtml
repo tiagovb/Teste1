@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:outputText
+		value="Você não tem permissão para realizar essa operação. Efetue login e tente novamente"></h:outputText>
+	<p:commandButton id="btnEfetuarLogin" type="button"
+		value="Efetuar Login" onclick="dialogoLogin.show()"></p:commandButton>
+	<p:dialog header="Efetue Login" widgetVar="dialogoLogin"
+		resizable="false" modal="true">
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="txtLogin" value="Login"></h:outputLabel>
+				<h:inputText id="txtLogin" value="#{usuarioBean.login}" />
+				<h:outputLabel for="txtSenha" value="Senha"></h:outputLabel>
+				<p:inputText id="txtSenha" type="password"
+					value="#{usuarioBean.senha}" />
+			</h:panelGrid>
+			<p:commandButton id="enviarForm" value="Enviar" update=":dadosLogin"
+				oncomplete="dialogoLogin.hide();"></p:commandButton>
+		</h:form>
+
+	</p:dialog>
+	<p:outputPanel id="dadosLogin">
+		<h:outputText id="result"
+			value="Você está autenticado com o login #{usuarioBean.login} e senha #{usuarioBean.senha}"></h:outputText>
+	</p:outputPanel>
+</h:body>
+</html>

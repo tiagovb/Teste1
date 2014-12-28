@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="5" cellpadding="3">
+			<p:panel header="Pulsate">
+				<h:outputText value="click" />
+				<p:effect event="click" type="pulsate" />
+			</p:panel>
+			<p:panel header="Pulsate">
+				<h:outputText value="dblclick" />
+				<p:effect event="dblclick" type="pulsate"></p:effect>
+			</p:panel>
+			<p:panel header="Pulsate">
+				<h:outputText value="mouseup" />
+				<p:effect event="mouseup" type="pulsate"></p:effect>
+			</p:panel>
+			<p:panel header="Pulsate">
+				<h:outputText value="mousedown" />
+				<p:effect event="mousedown" type="pulsate"></p:effect>
+			</p:panel>
+			<p:panel header="Pulsate">
+				<h:outputText value="mouseover" />
+				<p:effect event="mouseover" type="pulsate"></p:effect>
+			</p:panel>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

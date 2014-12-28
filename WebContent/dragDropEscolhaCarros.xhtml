@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<script type="text/javascript">
+	function tratarDrop(event, ui){
+		var carroSelecionado = ui.draggable;
+		carroSelecionado.fadeOut('normal');
+	}
+</script>
+</h:head>
+<h:body>
+	<h:form id="formCarros">
+		<p:fieldset legend="Carros disponíveis">
+			<p:dataGrid id="carrosDisponiveis" var="carro"
+				value="#{dragDropEscolhaCarrosBean.carrosDisponiveis}" columns="4">
+				<p:column>
+					<p:panel id="pnlCarroDisponivel" header="#{carro.nome}">
+						<h:panelGrid columns="1">
+							<h:outputText value="#{carro.ano}"></h:outputText>
+						</h:panelGrid>
+					</p:panel>
+				</p:column>
+				<p:draggable for="pnlCarroDisponivel" revert="true"
+					handle=".ui-panel-titlebar"></p:draggable>
+			</p:dataGrid>
+		</p:fieldset>
+		<p:fieldset id="carrosSelecionados" legend="Carros selecionados">
+			<p:outputPanel id="areaDestino">
+				<h:outputText value="Arraste e solte seu carro aqui"
+					rendered="#{empty dragDropEscolhaCarrosBean.carrosSelecionados}"
+					style="font-size:30px;" />
+				<p:dataTable var="carro"
+					value="#{dragDropEscolhaCarrosBean.carrosSelecionados}"
+					rendered="#{not empty dragDropEscolhaCarrosBean.carrosSelecionados}">
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{carro.nome}"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Ano">
+						<h:outputText value="#{carro.ano}"></h:outputText>
+					</p:column>
+
+					<p:column headerText="Caracteristicas">
+						<h:outputText value="#{carro.caracteristicas}"></h:outputText>
+					</p:column>
+
+
+				</p:dataTable>
+			</p:outputPanel>
+		</p:fieldset>
+		<p:droppable activeStyleClass="ui-state-highlight"
+			for="carrosSelecionados" tolerance="touch" datasource="carrosDisponiveis"
+			onDrop="tratarDrop">
+			<p:ajax listener="#{dragDropEscolhaCarrosBean.onCarroSelecionado}" 
+			update="carrosDisponiveis areaDestino"/>
+		</p:droppable>
+	</h:form>
+</h:body>
+</html>

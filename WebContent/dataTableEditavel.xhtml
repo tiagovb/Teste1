@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:dataTable value="#{DataGridBean.produtos}" var="produto"
+			paginator="true" rows="10"
+			paginatorTemplate="{CurrentPageReport} {RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			rowKey="#{produto.id}" selection="#{DataGridBean.produtoSelecionado}"
+			resizableColumns="true" editable="true">
+			<f:facet name="header">
+			Lista de Produtos
+			</f:facet>
+			<f:facet name="footer">
+			Produtos Comercializados pela Devmedia
+			</f:facet>
+			<p:column style="width:18px">
+				<p:rowToggler />
+			</p:column>
+			<p:column sortBy="#{produto.nome}" filterBy="#{produto.nome}"
+				filterMatchMode="contains">
+				<f:facet name="header">
+			Nome
+			</f:facet>
+				<f:facet name="footer">
+				Produtos em promoção
+			</f:facet>
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{produto.nome}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{produto.nome}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Categoria" sortBy="#{produto.categoria}"
+				filterBy="#{produto.categoria}" filterMatchMode="exact"
+				filterOptions="#{DataGridBean.listaCategorias}">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{produto.categoria}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu value="#{produto.categoria}">
+							<f:selectItems value="#{DataGridBean.listaCategorias}"
+								var="categ" itemLabel="#{categ}" itemValue="#{categ}"></f:selectItems>
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Valor" sortBy="#{produto.valor}"
+				filterBy="#{produto.valor}" filterMatchMode="startsWith">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{produto.valor}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{produto.valor}" />
+					</f:facet>
+				</p:cellEditor>
+
+			</p:column>
+			<p:column headerText="Total Vendas" sortBy="#{produto.totalVendas}"
+				filterBy="#{produto.totalVendas}" filterMatchMode="exact">
+				<h:outputText value="#{produto.totalVendas}"></h:outputText>
+			</p:column>
+			<p:column headerText="Ação">
+				<p:rowEditor />
+			</p:column>
+			<p:rowExpansion>
+				<p:panelGrid columns="2">
+					<h:outputText value="Nome"></h:outputText>
+					<h:outputText value="#{produto.nome}"></h:outputText>
+					<h:outputText value="Categoria"></h:outputText>
+					<h:outputText value="#{produto.categoria}"></h:outputText>
+
+				</p:panelGrid>
+			</p:rowExpansion>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

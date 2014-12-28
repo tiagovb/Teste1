@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<!-- Ajax Status Simples 
+	<p:ajaxStatus style="width=16px;height=16px;" id="ajaxStatusPanel">
+		<f:facet name="start">
+			<h:graphicImage value="img/ajaxLoading.gif"></h:graphicImage>
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+	-->
+	<!-- Ajax Status Customizado -->
+	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status"
+		draggable="false" closable="false">
+		<h:graphicImage value="img/ajaxLoading.gif"></h:graphicImage>
+	</p:dialog>
+
+	<h:form id="form">
+		<p:panel id="panel" header="Cadastro de Funcionario">
+			<p:messages id="msgResultado" />
+			<h:panelGrid columns="3">
+				<h:outputLabel for="nome" value="Nome: "></h:outputLabel>
+				<p:inputText id="nome" value="#{funcionarioBean.nome}"
+					requiredMessage="O nome é obrigatório" required="true"></p:inputText>
+				<p:message for="nome" id="msgValidacaoNome"></p:message>
+				<h:outputLabel for="funcao" value="Funcao: "></h:outputLabel>
+				<p:inputText id="funcao" value="#{funcionarioBean.funcao}"
+					requiredMessage="A função é obrigatória" required="true"></p:inputText>
+				<p:message for="funcao" id="msgValidacaoFuncao"></p:message>
+			</h:panelGrid>
+			<p:commandButton id="btnSalvar" value="Salvar" update="panel"
+				actionListener="#{funcionarioBean.SalvarFuncinario}" global="true" />
+		</p:panel>
+
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+	
+		<p:growl id="growl" showDetail="true"/>
+	
+		<p:accordionPanel autoHeight="false" dynamic="true" cache="true" multiple="false"
+		>
+		
+		<p:ajax event="tabChange" listener="#{accordionBean.onTabChange}" update=":form:growl"></p:ajax>
+		
+			<p:tab title="Novidades Visual Studio">
+				<h:panelGrid cellpadding="10">
+					<h:outputText
+						value="Microsoft lança Visual Studio
+			2012 RC com novo layout e carregamento mais rápido."></h:outputText>
+				</h:panelGrid>
+				<h:outputText value="#{poolBean.data}"></h:outputText>
+			</p:tab>
+			<p:tab title="Novidades Devmedia">
+				<h:panelGrid cellpadding="10">
+					<h:outputText
+						value="Devmedia reabre Canal com aulas de Infra."></h:outputText>
+				</h:panelGrid>
+				<h:outputText value="#{poolBean.data}"></h:outputText>
+			</p:tab>
+			<p:tab title="Novidades Windows Phone">
+				<h:panelGrid cellpadding="10">
+					<h:outputText
+						value="Microsoft lança Windows Phone 7.5 codename 'Mango'."></h:outputText>
+				</h:panelGrid>
+				<h:outputText value="#{poolBean.data}"></h:outputText>
+			</p:tab>
+		</p:accordionPanel>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:panel header="Cores">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputText value="Modelo Inline:" />
+				<p:colorPicker id="cpModeloInline" value="#{colorBean.cor1}"
+					mode="inline"></p:colorPicker>
+				<h:outputText value="Modelo Popup:" />
+				<p:colorPicker id="cpModeloPopup" value="#{colorBean.cor2}"></p:colorPicker>
+			</h:panelGrid>
+			<p:separator />
+
+			<p:commandButton value="Enviar" oncomplete="dialogo.show()" update="grid" />
+		</p:panel>
+		<p:dialog modal="true" widgetVar="dialogo" showEffect="fade"
+			hideEffect="fade" header="Cores Selecionadas" resizable="false">
+			<h:panelGrid columns="2" id="grid">
+				<h:outputText value="Cor do Modelo 1:" />
+				<h:outputText value="#{colorBean.cor1}" />
+
+				<h:outputText value="Cor do Modelo 2:" />
+				<h:outputText value="#{colorBean.cor2}" />
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

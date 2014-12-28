@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<p:editor id="editor" widgetVar="editor" value="#{editorBean.conteudo}" height="300"
+			width="500"></p:editor>
+
+		<h:panelGrid columns="2">
+			<p:commandButton id="btnEnviar" value="Enviar" update="conteudo" oncomplete="dlgResultado.show()"/>
+			<p:commandButton id="btnLimpar" value="Limpar" onclick="editor.clear()"/>
+		</h:panelGrid>
+
+		<p:dialog header="Resultado" widgetVar="dlgResultado"
+			showEffect="fade" hideEffect="fade" modal="true">
+			<h:outputText id="conteudo" value="#{editorBean.conteudo}"
+				escape="false"></h:outputText>
+		</p:dialog>
+
+	</h:form>
+</h:body>
+</html>

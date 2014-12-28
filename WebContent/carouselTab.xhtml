@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:carousel rows="1" itemStyle="heigth:200px;width:650px;"
+			effect="slide">
+			<p:tab>
+				<h:panelGrid columns="2" cellpadding="8">
+					<p:graphicImage value="/img/item1.jpg" width="120" />
+					<h:outputText
+						value="Esse texto faz referência a imagem que está sendo exibida." />
+
+				</h:panelGrid>
+			</p:tab>
+			<p:tab>
+				<h:panelGrid columns="2" cellpadding="8">
+					<p:graphicImage value="/img/item2.jpg" width="120" />
+					<h:outputText
+						value="Esse texto faz referência a outra imagem que está sendo exibida." />
+
+				</h:panelGrid>
+			</p:tab>
+			<p:tab>
+				<h:panelGrid columns="2" cellpadding="8">
+					<p:graphicImage value="/img/item3.jpg" width="120" />
+					<h:outputText
+						value="Esse texto faz referência a item final do meu componente Carousel usando TAB." />
+
+				</h:panelGrid>
+			</p:tab>
+		</p:carousel>
+	</h:form>
+</h:body>
+</html>

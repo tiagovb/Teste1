@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:panel header="Lista de Produtos">
+			<h:panelGrid columns="2" id="grid">
+				<h:outputLabel value="Nome: " for="txtNome"></h:outputLabel>
+				<p:inputText id="txtNome" value="#{criarProdutosBean.produto.nome}"
+					required="true"></p:inputText>
+
+				<h:outputLabel value="Descrição: " for="txtDescricao"></h:outputLabel>
+				<p:inputText id="txtDescricao"
+					value="#{criarProdutosBean.produto.descricao}" required="true"></p:inputText>
+
+				<p:commandButton value="Inserir" id="btnInserir"
+					update="grid produtos" action="#{criarProdutosBean.Reiniciar}">
+					<p:collector value="#{criarProdutosBean.produto}"
+						addTo="#{criarProdutosBean.produtos}"></p:collector>
+
+				</p:commandButton>
+
+
+			</h:panelGrid>
+		</p:panel>
+		<p:outputPanel id="produtos">
+			<p:dataTable id="produtosDt" value="#{criarProdutosBean.produtos}"
+				var="produto">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Nome do Produto"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{produto.nome}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Descrição do Produto"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{produto.descricao}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Ação"></h:outputText>
+					</f:facet>
+					<p:commandLink value="Excluir" update=":form:produtos" process=":form:produtos">
+						<p:collector value="#{produto}"
+							removeFrom="#{criarProdutosBean.produtos}"></p:collector>
+
+					</p:commandLink>
+				</p:column>
+			</p:dataTable>
+
+		</p:outputPanel>
+	</h:form>
+</h:body>
+</html>

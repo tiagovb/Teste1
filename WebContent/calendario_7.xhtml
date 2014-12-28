@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script type="text/javascript">
+		PrimeFaces.locales['pt_BR'] = {
+			closeText : 'Fechar',
+			prevText : 'Anterior',
+			nextText : 'Próximo',
+			currentText : 'Começo',
+			monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+					'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+					'Novembro', 'Dezembro' ],
+			monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+					'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+			dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+					'Sexta', 'Sábado' ],
+			dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+			dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+			weekHeader : 'Semana',
+			firstDay : 1,
+			isRTL : false,
+			showMonthAfterYear : false,
+			yearSuffix : '',
+			timeOnlyTitle : 'Só Horas',
+			timeText : 'Tempo',
+			hourText : 'Hora',
+			minuteText : 'Minuto',
+			secondText : 'Segundo',
+			currentText : 'Data de Hoje',
+			ampm : false,
+			month : 'Mês',
+			week : 'Semana',
+			day : 'Dia',
+			allDayText : 'Todo Dia'
+		};
+	</script>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="Calendário com efeito Explode" />
+			<p:calendar pattern="dd/MM/yyyy" locale="pt_BR"
+				value="#{dataBean.data}" effect="explode">
+			</p:calendar>
+
+			<h:outputText value="Calendário com efeito Fold" />
+			<p:calendar pattern="dd/MM/yyyy" locale="pt_BR"
+				value="#{dataBean.data}" effect="fold" effectDuration="slow">
+			</p:calendar>
+
+			<h:outputText value="Calendário com efeito Drop" />
+			<p:calendar pattern="dd/MM/yyyy" locale="pt_BR"
+				value="#{dataBean.data}" effect="drop" effectDuration="slow">
+			</p:calendar>
+
+			<h:outputText value="Calendário padrão com data e hora" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm" locale="pt_BR"
+				value="#{dataBean.data}" effect="drop" effectDuration="slow">
+			</p:calendar>
+
+			<h:outputText value="Calendário apenas com horário" />
+			<p:calendar pattern="HH:mm" timeOnly="true" locale="pt_BR"
+				value="#{dataBean.data}" effect="drop" effectDuration="slow">
+			</p:calendar>
+
+			<h:outputText value="Calendário com data hora (AM/PM)" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm a" locale="pt_BR"
+				value="#{dataBean.data}" effect="drop" effectDuration="slow">
+			</p:calendar>
+
+			<h:outputText value="Calendário com data hora e segundos" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm:ss" locale="pt_BR"
+				value="#{dataBean.data}" stepHour="2" stepMinute="30"
+				stepSecond="20" effect="drop" effectDuration="slow">
+			</p:calendar>
+
+			<h:outputText value="Calendário comercial" />
+			<p:calendar pattern="dd/MM/yyyy HH:mm:ss" locale="pt_BR"
+				value="#{dataBean.data}" minHour="8" maxHour="18" stepMinute="30"
+				stepSecond="20" effect="drop" effectDuration="slow">
+			</p:calendar>
+
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

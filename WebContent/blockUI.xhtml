@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+	<p:growl id="growl"/>
+	
+		<h3>Simples BlockUI</h3>
+		<p:panel id="pnl" header="Novo Cliente">			
+			<h:panelGrid columns="3">
+				<h:outputLabel for="nome" value="Nome: "></h:outputLabel>
+				<p:inputText id="nome" value="#{clienteBean.nome}" required="true"
+					label="nome"/>					
+					<p:message for="nome" />
+
+					<h:outputLabel for="cargo" value="Cargo: "></h:outputLabel>
+					<p:inputText id="cargo" value="#{clienteBean.cargo}"
+						required="true" label="cargo"/>					
+						<p:message for="cargo" />
+			</h:panelGrid>
+			<p:commandButton id="btnInserir" value="Inserir" actionListener="#{clienteBean.InserirCliente}" update="growl"></p:commandButton>
+		</p:panel>
+		<p:blockUI block="pnl" trigger="btnInserir"></p:blockUI>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid column="5">
+			<p:panel header="Drop">
+				<h:outputText value="Clique" />
+				<p:effect event="click" type="drop">
+					<f:param name="direction" value="'horizontal'" />
+				</p:effect>
+			</p:panel>
+			<p:panel header="Drop">
+				<h:outputText value="Duplo Clique" />
+				<p:effect event="dblclick" type="drop">
+					<f:param name="direction" value="'horizontal'" />
+				</p:effect>
+			</p:panel>
+			<p:panel header="Drop">
+				<h:outputText value="MouseUp" />
+				<p:effect event="mouseup" type="drop">
+					<f:param name="direction" value="'horizontal'" />
+				</p:effect>
+			</p:panel>
+			<p:panel header="Drop">
+				<h:outputText value="MouseDown" />
+				<p:effect event="mousedown" type="drop">
+				</p:effect>
+			</p:panel>
+			<p:panel header="Drop">
+				<h:outputText value="MouseOver" />
+				<p:effect event="mouseover" type="drop">
+				</p:effect>
+			</p:panel>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

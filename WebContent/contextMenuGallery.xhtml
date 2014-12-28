@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+	
+		<p:growl id="growl" showDetail="false" autoUpdate="true"/>	
+		<p:imageSwitch effect="shuffle" id="images" widgetVar="gallery"
+			slideshowAuto="false" style="width:400px">
+			<p:graphicImage value="/img/item1.jpg"></p:graphicImage>
+			<p:graphicImage value="/img/item2.jpg"></p:graphicImage>
+			<p:graphicImage value="/img/item3.jpg"></p:graphicImage>
+			<p:graphicImage value="/img/item4.jpg"></p:graphicImage>
+		</p:imageSwitch>
+
+		<p:contextMenu for="images">
+			<p:menuitem value="Anterior" onclick="gallery.previous()"
+				icon="ui-icon-triangle-1-w" />
+			<p:menuitem value="Próximo" onclick="gallery.next()"
+				icon="ui-icon-triangle-1-e" />
+			<p:menuitem value="Enviar para o servidor"
+				actionListener="#{contextMenuGalleryBean.enviar}" ajax="true" />
+		</p:contextMenu>
+	</h:form>
+</h:body>
+</html>

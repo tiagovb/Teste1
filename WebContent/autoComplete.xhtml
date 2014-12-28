@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:panel header="AutoComplete Simples" toggleable="true">
+
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientes" value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}"></p:autoComplete>
+
+				<p:commandButton value="Imprimir" update="displayCliente"></p:commandButton>
+
+				<h:panelGrid id="displayCliente" columns="2">
+					<h:outputText value="Cliente: "></h:outputText>
+					<h:outputText value="#{autoCompleteBean.cliente}"></h:outputText>
+
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</p:panel>
+		<p:panel header="AutoComplete Delay" toggleable="true">
+
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientesDeplay"
+					value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" queryDelay="1000"></p:autoComplete>
+
+				<p:commandButton value="Imprimir" update="displayClienteDelay"></p:commandButton>
+
+				<h:panelGrid id="displayClienteDelay" columns="2">
+					<h:outputText value="Cliente: "></h:outputText>
+					<h:outputText value="#{autoCompleteBean.cliente}"></h:outputText>
+
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</p:panel>
+		<p:panel header="AutoComplete Tamanho Mínimo" toggleable="true">
+
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientesMinLength"
+					value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" minQueryLength="2"></p:autoComplete>
+
+				<p:commandButton value="Imprimir" update="displayClienteMinLength"></p:commandButton>
+
+				<h:panelGrid id="displayClienteMinLength" columns="2">
+					<h:outputText value="Cliente: "></h:outputText>
+					<h:outputText value="#{autoCompleteBean.cliente}"></h:outputText>
+
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</p:panel>
+		<p:panel header="AutoComplete Forçando Seleção" toggleable="true">
+
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientesForce"
+					value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" forceSelection="true"></p:autoComplete>
+
+				<p:commandButton value="Imprimir" update="displayClienteForce"></p:commandButton>
+
+				<h:panelGrid id="displayClienteForce" columns="2">
+					<h:outputText value="Cliente: "></h:outputText>
+					<h:outputText value="#{autoCompleteBean.cliente}"></h:outputText>
+
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</p:panel>
+		<p:panel header="AutoComplete com DropDownList" toggleable="true">
+
+			<h:panelGrid columns="2" cellpadding="3">
+				<h:outputLabel value="Clientes:" />
+				<p:autoComplete id="acClientesDropDown"
+					value="#{autoCompleteBean.cliente}"
+					completeMethod="#{autoCompleteBean.complete}" dropdown="true"></p:autoComplete>
+
+				<p:commandButton value="Imprimir" update="displayClienteDropDown"></p:commandButton>
+
+				<h:panelGrid id="displayClienteDropDown" columns="2">
+					<h:outputText value="Cliente: "></h:outputText>
+					<h:outputText value="#{autoCompleteBean.cliente}"></h:outputText>
+
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

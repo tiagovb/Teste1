@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="5" cellpadding="3">
+			<p:panel header="Shake">
+				<h:outputText value="click" />
+				<p:effect event="click" type="shake" />
+			</p:panel>
+			<p:panel header="Shake">
+				<h:outputText value="dblclick" />
+				<p:effect event="dblclick" type="shake" />
+			</p:panel>
+			<p:panel header="Shake">
+				<h:outputText value="mouseup" />
+				<p:effect event="mouseup" type="shake" />
+			</p:panel>
+			<p:panel header="Shake">
+				<h:outputText value="mousedown" />
+				<p:effect event="mousedown" type="shake" />
+			</p:panel>
+			<p:panel header="Shake">
+				<h:outputText value="mouseover" />
+				<p:effect event="mouseover" type="shake" />
+			</p:panel>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

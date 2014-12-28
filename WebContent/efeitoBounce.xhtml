@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="5">
+			<p:panel header="Bounce">
+				<h:outputText value="Clique" />
+				<p:effect event="click" type="bounce" />
+			</p:panel>
+			
+			<p:panel header="Bounce">
+				<h:outputText value="Duplo Clique"/>
+				<p:effect event="dblclick" type="bounce"/>
+			</p:panel>
+			<p:panel header="Bounce">
+				<h:outputText value="Mouse Over"/>
+				<p:effect event="mouseover" type="bounce"/>
+			</p:panel>
+			<p:panel header="Bounce">			
+				<h:outputText value="Mouse Down"/>
+				<p:effect event="mousedown" type="bounce"/>
+			</p:panel>
+			<p:panel header="Bounce">
+				<h:outputText value="Mouse Up"/>
+				<p:effect event="mouseup" type="bounce"/>
+			</p:panel>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
